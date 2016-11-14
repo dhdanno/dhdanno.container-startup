@@ -1,0 +1,20 @@
+---
+
+# pass in array of services and respective paths
+
+- name: Install systemd file
+  template: src=service.yml.j2 dest=/etc/systemd/service/{{ item }}.service
+  with_items: "{{ services }}"
+
+- name: Daemon reload
+  shell: "systemctl daemon-reload"
+
+- name: Start Elasticsearch
+  service: name={{ item }} state=enabled
+  with_items: "{{ services }}"
+
+- name: Start Elasticsearch
+  service: name={{ item }} state=started
+  with_items: "{{ services }}"
+
+
