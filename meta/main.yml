@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Daniel Korel
+  description: Container systemd startup for docker-compose services
+  company: 
+  license: MIT
+  min_ansible_version: 1.9
+  platforms:
+  - name: EL
+    versions:
+    - all
+  galaxy_tags:
+    - docker
+    - systemd
+    - statup
+    - compose
