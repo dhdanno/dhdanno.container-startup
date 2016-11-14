@@ -1,10 +1,15 @@
 # dhdanno.container-startup
 Playbook role for automatically starting your compose based docker services by adding them to the relevant service manager for your OS
 
+This allows docker-compose application stacks to be handled as native OS services with regard to state maintenance and allows them to auto-start on boot.
+
 ## Dependencies
 ansible
+
 python
+
 docker
+
 docker-compose
 
 ## How it works
