@@ -8,9 +8,9 @@ docker
 docker-compose
 
 ## How it works
-Input is an array of service names and respective path
+Input is a dictionarty of service names and respective path
 
-- We then generate the appropriate file
+- We then generate the appropriate files
 - systemctl enable {{ service_name }}
 - systemctl start {{ service_name }}
 
