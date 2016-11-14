@@ -3,18 +3,24 @@
 # pass in array of services and respective paths
 
 - name: Install systemd file
-  template: src=service.yml.j2 dest=/etc/systemd/service/{{ item }}.service
+  template: src=service.yml.j2 dest=/etc/systemd/system/{{ item.name }}.service owner=root mode=0644
+  become: true
   with_items: "{{ services }}"
 
+  # Proper way to do this?
 - name: Daemon reload
   shell: "systemctl daemon-reload"
+  become: true
 
-- name: Start Elasticsearch
-  service: name={{ item }} state=enabled
+- name: Enable Services
+#  service: name={{ item.name }} enabled=yes
+  systemd: name={{ item.name }} enabled=yes
+  become: true
   with_items: "{{ services }}"
 
-- name: Start Elasticsearch
-  service: name={{ item }} state=started
+- name: Start Services
+  systemd: name={{ item.name }} state=started
+  become: true
   with_items: "{{ services }}"
 
 

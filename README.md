@@ -13,6 +13,23 @@ Input is an array of service names and respective path
 
 
 
+## Usage
+```
+  roles:
+  - {
+     role: dhdanno.container-startup,
+     services: [
+       {  name: 'myservice1',
+          path: '/data/<myservicepath>'
+       },
+       {
+         name: 'awesomeness.com',
+         path: '/data/awesomeness.com'
+       }
+     ]
+    }
+``
+
 ### systemd
 1. creates the service file in /etc/systemd
 2. set it to startup
