@@ -7,6 +7,22 @@ Tell us about your containers and we will create an appropriate startup script w
 ### systemd
 1. creates the service file in /etc/systemd
 2. set it to startup
+```
+[Unit]
+Description={{ service_name }} Startup Script
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/docker-compose up
+ExecStop={{ compose_app_path }}/docker-compose down
+Restart=always
+WorkingDirectory={{ compose_app_path }}
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ### sysinitv
 TODO
