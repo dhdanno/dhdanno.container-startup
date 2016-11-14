@@ -1,8 +1,11 @@
 # dhdanno.container-startup
-Playbook role for automatically starting your compose based docker services
+Playbook role for automatically starting your compose based docker services by adding them to the relevant service manager for your OS
 
-## Requirements?
-Tell us about your containers and we will create an appropriate startup script which composes that file
+## Dependencies
+ansible
+python
+docker
+docker-compose
 
 ## How it works
 Input is an array of service names and respective path
@@ -10,7 +13,6 @@ Input is an array of service names and respective path
 - We then generate the appropriate file
 - systemctl enable {{ service_name }}
 - systemctl start {{ service_name }}
-
 
 
 ## Usage
