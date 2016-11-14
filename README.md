@@ -28,7 +28,7 @@ Input is an array of service names and respective path
        }
      ]
     }
-``
+```
 
 ### systemd
 1. creates the service file in /etc/systemd
