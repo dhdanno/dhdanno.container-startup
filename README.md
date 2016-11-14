@@ -4,6 +4,15 @@ Playbook role for automatically starting your compose based docker services
 ## Requirements?
 Tell us about your containers and we will create an appropriate startup script which composes that file
 
+## How it works
+Input is an array of service names and respective path
+
+- We then generate the appropriate file
+- systemctl enable {{ service_name }}
+- systemctl start {{ service_name }}
+
+
+
 ### systemd
 1. creates the service file in /etc/systemd
 2. set it to startup
