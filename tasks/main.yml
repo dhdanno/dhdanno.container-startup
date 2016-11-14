@@ -5,17 +5,13 @@
   become: true
   with_items: "{{ services }}"
 
-- name: Daemon reload
-  shell: "systemctl daemon-reload"
-  become: true
-
 - name: Enable Services
-  systemd: name={{ item.name }} enabled=yes
+  systemd: name={{ item.name }} daemon_reload=yes enabled=yes
   become: true
   with_items: "{{ services }}"
 
 - name: Start Services
-  systemd: name={{ item.name }} state=started
+  systemd: name={{ item.name }} daemon_reload=yes state=started
   become: true
   with_items: "{{ services }}"
 
